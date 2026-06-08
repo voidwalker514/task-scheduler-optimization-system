@@ -1,0 +1,4 @@
+# No external dependencies required for the core Python functionality.
+# Standard library used: heapq, csv, os
+fastapi
+uvicorn
