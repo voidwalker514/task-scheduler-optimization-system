@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Scheduler Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="glass-panel">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h1>Nexus Scheduler</h1>
+            </div>
+            <div class="header-actions">
+                <button id="refresh-btn" class="btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+                    Run Optimization
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!-- KPI Cards -->
+            <section class="kpi-grid">
+                <div class="kpi-card glass-panel" style="--delay: 0.1s">
+                    <div class="kpi-icon profit"></div>
+                    <div class="kpi-info">
+                        <h3>Total Profit</h3>
+                        <p id="total-profit">0</p>
+                    </div>
+                </div>
+                <div class="kpi-card glass-panel" style="--delay: 0.2s">
+                    <div class="kpi-icon time"></div>
+                    <div class="kpi-info">
+                        <h3>Time Spent</h3>
+                        <p id="time-spent">0<span>h</span></p>
+                    </div>
+                </div>
+                <div class="kpi-card glass-panel" style="--delay: 0.3s">
+                    <div class="kpi-icon success"></div>
+                    <div class="kpi-info">
+                        <h3>Completion Rate</h3>
+                        <p id="completion-rate">0%</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-grid">
+                <div class="chart-card glass-panel" style="--delay: 0.35s">
+                    <h2><span class="status-dot accent"></span> Profit by Task</h2>
+                    <div class="canvas-container">
+                        <canvas id="profitChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card glass-panel" style="--delay: 0.4s">
+                    <h2><span class="status-dot accent"></span> Task Success Rate</h2>
+                    <div class="canvas-container">
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-grid">
+                <!-- Timeline/Completed Tasks -->
+                <section class="completed-section glass-panel" style="--delay: 0.4s">
+                    <h2><span class="status-dot green"></span> Scheduled Tasks (Timeline)</h2>
+                    <div class="timeline-container" id="timeline-container">
+                        <!-- Filled by JS -->
+                    </div>
+                </section>
+
+                <!-- Missed Tasks -->
+                <section class="missed-section glass-panel" style="--delay: 0.5s">
+                    <h2><span class="status-dot red"></span> Missed Deadlines</h2>
+                    <div class="missed-list" id="missed-list">
+                        <!-- Filled by JS -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
